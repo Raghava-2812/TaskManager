@@ -3,29 +3,34 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background:#0f2027;
+  background: #0f2027;
   background-image: radial-gradient(circle at top left,#203a43, transparent 60%),
                     radial-gradient(circle at bottom right, #2c5364, transparent 60%);
   min-height: 100vh;
   color: #fff;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
+
+/* App body */
 .app-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding: 10px;
-  box-sizing: border-box;
+  width: 100%;
+  padding: 1vw;
 }
 
-/* linear-gradient(135deg, #0f2027, #203a43, #2c5364) */
 /* App container */
 .app-container {
-  width: 100%;
+  width: 90vw;           /* scale with screen width */
+  max-width: 1200px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1vw;
 }
 
 /* Navbar */
@@ -34,12 +39,22 @@ body, html {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
-  padding: 16px 32px;
+  padding: 1vw 2vw;
   background: linear-gradient(135deg, #1e293b, #0f172a);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-  margin: 0rem 0;
+  border-radius: 1vw;
+  box-shadow: 0 0.5vw 1.5vw rgba(0,0,0,0.25);
+}
+
+.navbar h2 {
+  font-size: 2vw;   /* scales with viewport */
+  margin: 0;
+}
+
+.navbar button {
+  font-size: 1.2vw;
+  padding: 0.8vw 2vw;
+  border-radius: 1vw;
+  cursor: pointer;
 }
 
 /* Auth container */
@@ -47,16 +62,63 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   min-height: 70vh;
-  padding: 20px;
+  padding: 2vw;
+}
+
+/* Auth card */
+.auth-card {
+  width: 40vw;
+  min-width: 300px;  /* prevent too small */
+  padding: 2vw;
+  background: linear-gradient(135deg, #203a43, #2c5364);
+  border-radius: 1vw;
+  box-shadow: 0 0.5vw 1.5vw rgba(0,0,0,0.3);
 }
 
 /* Task list container */
 .task-list-container {
-  width: 100%;
-  max-width: 800px;
-  margin: 2rem auto;
+  width: 80vw;
+  max-width: 1000px;
+  margin: 2vh auto;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1vh;
+}
+
+/* Task item */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vw;
+  border-radius: 1vw;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  box-shadow: 0 0.3vw 1vw rgba(0,0,0,0.3);
+  font-size: 1.2vw;
+}
+
+/* Buttons inside tasks */
+.task-btns button {
+  font-size: 1vw;
+  padding: 0.5vw 1vw;
+  border-radius: 0.8vw;
+}
+
+/* Inputs */
+input {
+  font-size: 1vw;
+  padding: 0.8vw;
+  border-radius: 0.8vw;
+}
+
+/* Keep everything scaled and prevent wrapping */
+* {
+  box-sizing: border-box;
+}
+
+/* Optional: prevent scrollbar horizontal overflow */
+body {
+  overflow-x: hidden;
 }

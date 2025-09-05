@@ -1,20 +1,11 @@
 import React from "react";
 import "./Navbar.css";
-import { API_URL } from "../config"; // assuming you created config.js
+import { API_URL } from "../config";
 
-function Navbar({ onLogout }) {
-  const handleLogout = () => {
-    // Clear sessionStorage token
-    sessionStorage.removeItem("token");
-
-    // Update App.js state to re-render login page
-    onLogout();
-  };
-
-
+export function Navbar({ username, handleLogout }) {
   return (
     <div className="navbar">
-      <h2>Task Manager</h2>
+      <h2>Welcome,{username}</h2>
       <button onClick={handleLogout}>Logout</button>
     </div>
   );

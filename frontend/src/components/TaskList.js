@@ -13,7 +13,7 @@ function TaskList({ token }) {
   // Fetch tasks from backend
   const fetchTasks = async () => {
     try {
-      const res = await axios.get(`${API_URL}/tasks`, {
+      const res = await axios.get(`${API_URL}/api/tasks`, {
         headers: { Authorization: token },
       });
       setTasks(res.data);
@@ -38,7 +38,7 @@ const addTask = async () => {
 
   try {
     const res = await axios.post(
-  `${API_URL}/tasks`,
+  `${API_URL}/api/tasks`,
   { text: newTask, completed: false, important: false },
   { headers: { Authorization:token } }
 );
@@ -55,7 +55,7 @@ const addTask = async () => {
   const toggleComplete = async (id, completed) => {
     try {
       const res = await axios.put(
-        `${API_URL}/tasks/${id}`,
+        `${API_URL}/api/tasks/${id}`,
         { completed: !completed },
         { headers: { Authorization: token } }
       );
@@ -70,7 +70,7 @@ const addTask = async () => {
   const toggleImportant = async (id, important) => {
     try {
       const res = await axios.put(
-        `${API_URL}/tasks/${id}`,
+        `${API_URL}/api/tasks/${id}`,
         { important: !important },
         { headers: { Authorization: token } }
       );
@@ -84,7 +84,7 @@ const addTask = async () => {
   // Delete task
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`${API_URL}/tasks/${id}`, {
+      await axios.delete(`${API_URL}/api/tasks/${id}`, {
         headers: { Authorization: token },
       });
       setTasks(tasks.filter((t) => t._id !== id));
@@ -105,7 +105,7 @@ const addTask = async () => {
     if (!editingText.trim()) return;
     try {
       const res = await axios.put(
-        `${API_URL}/tasks/${id}`,
+        `${API_URL}/api/tasks/${id}`,
         { text: editingText },
         { headers: { Authorization: token } }
       );

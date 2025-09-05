@@ -5,11 +5,12 @@ import TaskList from "./components/TaskList";
 import "./App.css";
 
 function App() {
-  const [token, setToken] = useState(sessionStorage.getItem("token") || null);
+  const [token, setToken] = useState("");
+  const [email, setEmail] = useState("");
 
-  const handleLogin = (newToken) => {
-    sessionStorage.setItem("token", newToken);
-    setToken(newToken);
+  const handleLogin = (token, email) => {
+    setToken(token);
+    setEmail(email); // store username/email
   };
 
   const handleLogout = () => {
@@ -21,7 +22,7 @@ function App() {
     <>
       {token ? (
         <div className="app-body">
-          <Navbar onLogout={handleLogout} />
+          <Navbar username={email} handleLogout={handleLogout} />
           <TaskList token={token} />
         </div>
       ) : (

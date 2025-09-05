@@ -1,12 +1,11 @@
 const express = require("express");
+const router = express.Router();
 const Task = require("../models/Task");
 const authMiddleware = require("../middleware/authMiddleware");
 
-const router = express.Router();
-
-// Get tasks for logged-in user
+// Get all tasks
 router.get("/", authMiddleware, async (req, res) => {
-  const tasks = await Task.find({ user: req.user });
+  const tasks = await Task.find({ userId: req.userId });
   res.json(tasks);
 });
 
@@ -15,31 +14,31 @@ router.post("/", authMiddleware, async (req, res) => {
   const newTask = new Task({
     text: req.body.text,
     completed: req.body.completed || false,
-    important: req.body.important || false,  // Add important field
-    user: req.user,
+    important: req.body.important || false,
+    userId: req.userId,
   });
   await newTask.save();
   res.json(newTask);
 });
 
-// Edit task
+// Update task
 router.put("/:id", authMiddleware, async (req, res) => {
   const updateData = {};
   if (req.body.text !== undefined) updateData.text = req.body.text;
   if (req.body.completed !== undefined) updateData.completed = req.body.completed;
-  if (req.body.important !== undefined) updateData.important = req.body.important; // Add important
+  if (req.body.important !== undefined) updateData.important = req.body.important;
 
-  const task = await Task.findOneAndUpdate(
-    { _id: req.params.id, user: req.user },
+  const updatedTask = await Task.findOneAndUpdate(
+    { _id: req.params.id, userId: req.userId },
     updateData,
     { new: true }
   );
-  res.json(task);
+  res.json(updatedTask);
 });
 
 // Delete task
 router.delete("/:id", authMiddleware, async (req, res) => {
-  await Task.findOneAndDelete({ _id: req.params.id, user: req.user });
+  await Task.findOneAndDelete({ _id: req.params.id, userId: req.userId });
   res.json({ msg: "Task deleted" });
 });
 
