@@ -12,7 +12,6 @@ const port = process.env.PORT || 5000;
 connectDB();
 
 
-const cors = require("cors");
 app.use(cors({
   origin: "*"
 }));
