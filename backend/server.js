@@ -8,11 +8,15 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Connect DB
+
 connectDB();
 
-// Middleware
-app.use(cors());
+
+const cors = require("cors");
+app.use(cors({
+  origin: "*"
+}));
+
 app.use(express.json());
 
 // Routes
