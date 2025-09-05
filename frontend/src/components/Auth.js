@@ -53,11 +53,24 @@ function Auth({ onLogin }) {
             <button type="submit">{isSignup ? "Sign Up" : "Login"}</button>
           </form>
           {message && <p className="error">{message}</p>}
-          <p className="switch-link" onClick={() => setIsSignup(!isSignup)}>
-            {isSignup
-              ? "Already have an account? Login"
-              : "Don’t have an account? Sign Up"}
-          </p>
+         <p className="switch-link">
+  {isSignup ? (
+    <>
+      Already have an account?{" "}
+      <a href="#" onClick={() => setIsSignup(false)}>
+        Login
+      </a>
+    </>
+  ) : (
+    <>
+      Don’t have an account?{" "}
+      <a href="#" onClick={() => setIsSignup(true)}>
+        Sign Up
+      </a>
+    </>
+  )}
+</p>
+
         </div>
       </div>
   );
