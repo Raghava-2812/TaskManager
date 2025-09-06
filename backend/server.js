@@ -12,7 +12,10 @@ const port = process.env.PORT || 5000;
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "https://taskmanager-frontend-fefm.onrender.com",  
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
