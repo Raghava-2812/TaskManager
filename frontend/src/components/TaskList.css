@@ -156,18 +156,19 @@
 }
 
 .status-toast {
-  position: fixed; /* float over content */
+  position: fixed;
   top: 20px;
-  right: 270px;
+  right: calc(16% + 20px);
   background: rgba(37, 117, 252, 0.95);
   color: #fff;
   padding: 12px 20px;
   border-radius: 12px;
   font-weight: 500;
-  z-index: 1000; /* above everything */
+  z-index: 1000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  animation: fadeInOut 3s forwards; /* auto fade after 3s */
+  animation: fadeInOut 3s forwards;
 }
+
 @keyframes fadeInOut {
   0% { opacity: 0; transform: translateY(-20px); }
   10% { opacity: 1; transform: translateY(0); }
