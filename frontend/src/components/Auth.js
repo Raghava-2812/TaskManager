@@ -16,11 +16,11 @@ function Auth({ onLogin }) {
     e.preventDefault();
     try {
       if (isSignup) {
-await axios.post(`${API_URL}/signup`, form);
+await axios.post(`${API_URL}/api/auth/signup`, form);
 setMessage("Signup successful, please login.");
   setIsSignup(false);
 } else {
-  const res = await axios.post(`${API_URL}/login`, form);
+  const res = await axios.post(`${API_URL}/api/auth/login`, form);
   onLogin(res.data.token);
 }
     } catch (err) {
