@@ -30,6 +30,7 @@ Database: MongoDB Atlas
 Deployment: Render (backend), Vercel (frontend)
 
 ## 📂 Project Structure
+```bash
 TaskManager/
 │── backend/        # Express + MongoDB server
 │   ├── models/     # Mongoose models
@@ -44,8 +45,8 @@ TaskManager/
 │   └── package.json
 │
 └── README.md
-
-##⚡ Installation & Setup
+```
+## ⚡ Installation & Setup
 ### 1. Clone Repo
 git clone https://github.com/Raghava-2812/TaskManager.git
 cd TaskManager
