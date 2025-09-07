@@ -17,7 +17,8 @@ connectDB();
 
 
 app.use(cors({
-  origin: "*"
+  origin: "https://taskmanager-frontend-fefm.onrender.com",
+  credentials: true
 }));
 
 
