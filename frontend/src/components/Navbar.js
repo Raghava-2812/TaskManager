@@ -1,6 +1,5 @@
 import React from "react";
 import "./Navbar.css";
-import { API_URL } from "../config";
 
 export function Navbar({ username, handleLogout }) {
   return (

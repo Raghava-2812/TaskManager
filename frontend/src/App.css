@@ -2,107 +2,139 @@
 body, html {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: 'Poppins', sans-serif;
   background:#0f2027;
   background-image: radial-gradient(circle at top left,#203a43, transparent 60%),
                     radial-gradient(circle at bottom right, #2c5364, transparent 60%);
   min-height: 100vh;
   color: #fff;
-}
-.app-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  padding: 10px;
   box-sizing: border-box;
 }
 
-/* linear-gradient(135deg, #0f2027, #203a43, #2c5364) */
-/* App container */
+/* App container fills viewport */
 .app-container {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+}
+
+/* Main content expands to push footer down */
+.app-body {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
-  max-width: 1200px;
-  padding: 16px 32px;
-  background: linear-gradient(135deg, #1e293b, #0f172a);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-  margin: 0rem 0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Auth container */
+/* Auth container centered */
 .auth-container {
+  flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
+  width: 100%;
   padding: 20px;
 }
 
-/* Task list container */
-.task-list-container {
+/* Auth card */
+.auth-card {
+  background: #1a1a2e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 360px;
+  max-width: 95%;
+  color: #00e0ff;
+  text-align: center;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+/* Buttons & inputs inside auth card */
+.auth-card input {
   width: 100%;
-  max-width: 800px;
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  margin: 0.7rem 0;
+  padding: 0.9rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #22223b;
+  color: #eee;
+  font-size: 1rem;
 }
-/* 📱 Mobile devices only (not just small browser windows) */
-@media only screen 
-  and (max-device-width: 768px) 
-  and (orientation: portrait), 
-  only screen 
-  and (max-device-width: 768px) 
-  and (orientation: landscape) {
 
-  .navbar h2 {
-    font-size: 5vw;
-  }
-
-  .navbar button {
-    font-size: 3.5vw;
-    padding: 2vw 4vw;
-  }
-
-  .auth-card {
-    width: 90vw;
-    padding: 5vw;
-    border-radius: 4vw;
-  }
-
-  .task-list-container {
-    width: 95vw;
-  }
-
-  .task-item {
-    font-size: 4vw;
-    padding: 3vw;
-    border-radius: 3vw;
-  }
-
-  .task-btns button {
-    font-size: 3.2vw;
-    padding: 1.5vw 3vw;
-    border-radius: 3vw;
-  }
-
-  input {
-    font-size: 3.5vw;
-    padding: 3vw;
-    border-radius: 3vw;
-    width: 100%;
-  }
+.auth-card #btn {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00e0ff, #007bff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+/* Footer styling (sticky) */
+.app-footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #f8fafc;
+  text-align: center;
+  padding: 5px 20px;
+  /* min-height: 4vh; */
+  font-size: 14px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  z-index: 100;
+}
+
+/* Error messages */
+.error {
+  color: #ff4e50;
+  margin-top: 0.7rem;
+  font-weight: bold;
+}
+
+/* Switch Link */
+.switch-link {
+  font-size: 14px;
+  color: #ccc;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.switch-link a {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.switch-link a:hover {
+  color: #f61f26;
+  text-decoration: underline;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media only screen and (max-device-width: 768px) and (orientation: portrait), only screen and (max-device-width: 768px) and (orientation: landscape) {
+   .navbar h2 { font-size: 5vw; }
+    .navbar button { font-size: 3.5vw; padding: 2vw 4vw; } 
+    .auth-card { width: 90vw; padding: 5vw; border-radius: 4vw; }
+     .task-list-container { width: 95vw; } 
+     .task-item { font-size: 4vw; padding: 3vw; border-radius: 3vw; } 
+     .task-btns button { font-size: 3.2vw; padding: 1.5vw 3vw; border-radius: 3vw; } 
+     input { font-size: 3.5vw; padding: 3vw; border-radius: 3vw; width: 100%; } 
+    }

@@ -6,11 +6,10 @@
   color: #f8fafc;
   padding: 14px 28px;
   border-radius: 14px;
-  width: 100%;             /* Full width of the parent container */
-  max-width: 1200px;       /* Optional: limits width on large screens */
-  margin: 0 auto 1rem auto; /* Center horizontally and add bottom margin */
+  width: calc(100% - 20px);
+  margin: 10px auto 10px auto; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  position: relative;      /* keep it relative, remove top offset */
+  box-sizing: border-box;
 }
 
 .navbar.sticky {

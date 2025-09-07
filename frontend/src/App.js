@@ -10,7 +10,7 @@ function App() {
 
   const handleLogin = (token, email) => {
     setToken(token);
-    setEmail(email); // store username/email
+    setEmail(email);
   };
 
   const handleLogout = () => {
@@ -19,16 +19,21 @@ function App() {
   };
 
   return (
-    <>
+    <div className="app-container">
       {token ? (
-        <div className="app-body">
+        <>
           <Navbar username={email} handleLogout={handleLogout} />
-          <TaskList token={token} />
-        </div>
+          <div className="app-body">
+            <TaskList token={token} />
+          </div>
+        </>
       ) : (
         <Auth onLogin={handleLogin} />
       )}
-    </>
+      <footer className="app-footer">
+            © {new Date().getFullYear()} Task Manager. All rights reserved.
+      </footer>
+    </div>
   );
 }
 
