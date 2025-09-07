@@ -101,12 +101,17 @@ background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
 }
 
 .task-item span {
-  font-size: 17px;
+  display: block;
+  font-size: 1rem;
   font-weight: 500;
-  color: #f1f5f9;
-  margin-bottom: 12px;
+  color: #fff;              /* text visible on gradient bg */
+  word-wrap: break-word;    /* break long words */
+  overflow: hidden;         /* hide overflow */
+  text-overflow: ellipsis;  /* add "..." for long text */
+  white-space: normal;      /* allow multiple lines */
+  max-height: 3.6em;        /* around 2 lines */
+  line-height: 1.8em;
 }
-
 /* Completed Task Style */
 .task-item.completed span {
   text-decoration: line-through;
@@ -128,7 +133,7 @@ background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   display: flex;
   gap: 10px;
   position: relative;
-  left: 8px;
+  left: 15px;
   justify-content: flex-end;
   margin-top: auto;
 }
@@ -144,9 +149,12 @@ background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   font-size: 14px;
   color: #fff;
   transition: all 0.3s ease;
+  text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
+#btn1{
+  min-width: 100px; 
+}
 .task-btns button:hover {
   transform: scale(1.08);
   box-shadow: 0 0 10px rgba(0, 224, 255, 0.5);

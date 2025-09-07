@@ -137,6 +137,7 @@ useEffect(() => {
         placeholder="Enter new task..."
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
+        maxLength={50} 
       />
       <button onClick={addTask}>Add</button>
     </div>
@@ -166,6 +167,7 @@ useEffect(() => {
                     value={editingText}
                     onChange={(e) => setEditingText(e.target.value)}
                     className="edit-input"
+                    maxLength={50} 
                   />
                 ) : (
                   <span>{task.text}</span>
@@ -173,10 +175,10 @@ useEffect(() => {
 
                 <div className="task-btns">
                   <button
-                    className="toggle-btn"
+                    className="toggle-btn" id="btn1"
                     onClick={() => toggleComplete(task._id, task.completed)}
                   >
-                    {task.completed ? "Undo" : "Complete"}
+                    {task.completed ? "Undo   " : "Complete"}
                   </button>
                   <button
                     className="toggle-btn"
