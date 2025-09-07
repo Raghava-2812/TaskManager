@@ -1,26 +1,22 @@
-
-
-
 .task-input-section {
   display: flex;
   align-items: center;
   gap: 10px;
   margin: 10px auto;           
   padding: 16px 24px;
-  width: 75%;                  /* fixed width relative to container */
+  width: 75%;                 
   max-width: 800px;            
   background: linear-gradient(135deg, #203a43, #2c5364);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;      
-  flex-shrink: 0;              /* prevents shrinking when tasks change */
+  flex-shrink: 0;              
 }
 
 
 .task-input-section input {
   flex: 1;
   min-width: 0;
-  /* important to prevent overflow */
   padding: 10px 14px;
   border-radius: 12px;
   border: none;
@@ -65,24 +61,22 @@
   background: transparent;
 }
 
-/* Task Display Section */
 .task-display-section {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   padding: 22px;
-  margin: 12px auto;       /* auto margin to center horizontally */
+  margin: 12px auto;      
   overflow-y: auto;
   max-height: 60vh;
-  justify-content: center; /* center the cards inside */
+  justify-content: center; 
 }
 
 
-/* Individual Task Item as Card */
+
 .task-item {
   flex: 1 1 280px;
-  /* responsive card width */
   max-width: 320px;
   min-height: 120px;
   display: flex;
@@ -104,21 +98,21 @@ background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   display: block;
   font-size: 1rem;
   font-weight: 500;
-  color: #fff;              /* text visible on gradient bg */
-  word-wrap: break-word;    /* break long words */
-  overflow: hidden;         /* hide overflow */
-  text-overflow: ellipsis;  /* add "..." for long text */
-  white-space: normal;      /* allow multiple lines */
-  max-height: 3.6em;        /* around 2 lines */
+  color: #fff;              
+  word-wrap: break-word;    
+  overflow: hidden;         
+  text-overflow: ellipsis;  
+  white-space: normal;      
+  max-height: 3.6em;        
   line-height: 1.8em;
 }
-/* Completed Task Style */
+
 .task-item.completed span {
   text-decoration: line-through;
   color: #94a3b8;
 }
 
-/* Important Task Style */
+
 .task-item.important {
   border-left: 6px solid #ff5252;
   background: linear-gradient(145deg, #3b0a0a, #701919);
@@ -138,7 +132,7 @@ background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   margin-top: auto;
 }
 
-/* Task Buttons as Modern */
+
 
 .task-btns button {
   padding: 6px 14px;
@@ -160,21 +154,22 @@ background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   box-shadow: 0 0 10px rgba(0, 224, 255, 0.5);
 }
 
-/* Button Variants (modern, cohesive with dark theme) */
 .task-btns button:nth-child(1) {
-  background: linear-gradient(135deg, #3b82f6, #60a5fa); /* Complete: soft blue gradient */
+  background: linear-gradient(135deg, #3b82f6, #60a5fa); 
 }
 
 .task-btns button:nth-child(2) {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8); /* Edit: royal blue */
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
 }
 
 .task-btns button:nth-child(3) {
-  background: linear-gradient(135deg, #14b8a6, #06b6d4); /* Important: turquoise-cyan */
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  min-width:60px;
 }
 
 .task-btns button:nth-child(4) {
-  background:linear-gradient(135deg, #f87171, #ef4444); /* Delete: muted red-pink */
+  background:linear-gradient(135deg, #f87171, #ef4444); 
+  min-width:60px;
 }
 
 
@@ -214,7 +209,6 @@ background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   }
 }
 
-/* Status Message */
 .status-message {
   background: rgba(37, 117, 252, 0.9);
   color: #fff;
@@ -226,7 +220,6 @@ background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   margin-bottom: 0px;
 }
 
-/* No Tasks Message */
 .no-tasks-message {
   color: #ccc;
   text-align: center;
@@ -248,22 +241,17 @@ background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   color: #fff;
 }
 
-/* Edit input inside important task */
 .task-item.important .edit-input {
-  /* flex: 1; */
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid #d62828;
-  /* subtle border to highlight input */
   margin-right: 8px;
   outline: none;
   font-size: 16px;
   color: #d62828;
-  /* dark red text for contrast */
   font-weight: bold;
 }
 
-/* Slide & Fade Animation */
 @keyframes slideFade {
   0% {
     opacity: 0;
